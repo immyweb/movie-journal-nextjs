@@ -1,0 +1,13 @@
+.header {
+  width: 900px;
+  margin: 0 auto;
+  padding: 50px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  color: white;
+  font-size: 50rem;
+}
