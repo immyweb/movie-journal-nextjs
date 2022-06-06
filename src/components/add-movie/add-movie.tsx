@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-// import { postMovie } from '../../adapters/movies-client';
+import { postMovie } from "../../../lib/crud";
 
 import requests from "../../requests";
 import { parseYear } from "../../utils/parseYear";
-import { IResult, IMovieListItem } from "../../../types/types";
+import type { IResult, IMovieListItem } from "../../../types/types";
 
 import styles from "./add-movie.module.css";
 
@@ -58,7 +58,12 @@ export const AddMovie = ({
       <form onSubmit={handleSubmit} className={styles.form}>
         <div>
           {posterImg && (
-            <Image src={`${requests.imgUrl}${posterImg}`} alt={title} />
+            <Image
+              src={`${requests.imgUrl}${posterImg}`}
+              alt={title}
+              width="220"
+              height="330"
+            />
           )}
         </div>
         <div className={styles.content}>

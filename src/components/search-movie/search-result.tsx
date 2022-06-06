@@ -29,6 +29,8 @@ const SearchResult = ({
       <Image
         src={`${requests.imgUrl}${posterImg}`}
         alt={title}
+        height="100"
+        width="66"
         className={styles.poster}
       />
       <div className={styles.info}>

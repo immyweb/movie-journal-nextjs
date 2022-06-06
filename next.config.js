@@ -6,6 +6,7 @@ const nextConfig = {
   },
   env: {
     TOKEN: process.env.TOKEN,
+    API_KEY: process.env.API_KEY,
   },
 };
 

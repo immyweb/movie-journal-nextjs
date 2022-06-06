@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Modal from "../modal/modal";
 import { AddMovie } from "../add-movie/add-movie";
 import SearchResult from "./search-result";
-// import { searchMovie } from '../../adapters/themoviesdb-client';
+import { searchMovie } from "../../../lib/crud";
 import { filterResults } from "./helpers";
 
 import { IResult } from "../../../types/types";
@@ -31,17 +31,17 @@ const SearchMovie = (): JSX.Element => {
     // Reset list
     setResults([]);
 
-    // searchMovie(title).then(response => {
-    //   if (response.results.length) {
-    //     const filtered = filterResults(response.results);
-    //     setNoResult(false);
-    //     setResults(filtered);
-    //   } else {
-    //     if (mountedRef.current) {
-    //       setNoResult(true);
-    //     }
-    //   }
-    // });
+    searchMovie(title).then((response) => {
+      if (response.results.length) {
+        const filtered = filterResults(response.results);
+        setNoResult(false);
+        setResults(filtered);
+      } else {
+        if (mountedRef.current) {
+          setNoResult(true);
+        }
+      }
+    });
   };
 
   const onSelect = (result: IResult) => {

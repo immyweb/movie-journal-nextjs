@@ -17,7 +17,8 @@ const MoviesList = (movies: IMovies): JSX.Element => {
   };
 
   const renderMovies = () => {
-    return movies.movies.map((movie) => {
+    const sortedByDate = sortByDateWatched(movies.movies);
+    return sortedByDate.map((movie) => {
       const { title, dateWatched, rating, posterImg, _id } = movie;
       return (
         <li className={styles.movie} key={title}>
